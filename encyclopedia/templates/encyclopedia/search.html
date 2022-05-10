@@ -1,0 +1,20 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Search - {{title}}
+{% endblock %}
+
+{% block body %}
+    
+    {% if not queries %}
+        <h5 style="text-align: center; margin-top: 40px;">Nothing assosciate with '{{title}}' in our database!</h5>
+    
+    {% else %}
+        <h5>Search results for '{{title}}' ...</h5>
+        <ul>
+            {% for query in queries %}
+                <li><a href="{{query}}" class="text-decoration-none link-primary">{{ query }}</a></li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endblock %}
